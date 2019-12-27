@@ -11,4 +11,8 @@ class HomeController extends Controller
         $feels = Feel::get();
         return view('welcome', compact('feels'));
     }
+
+    public function moment() {
+        return view('moment');
+    }
 }

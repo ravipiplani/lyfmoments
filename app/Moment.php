@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Moment extends Model
 {
+    protected $guarded = ['id'];
+
+    protected $casts = [
+        'share_with' => 'array'
+	];
+
     public function createdBy () {
         return $this->belongsTo(User::class, 'id', 'created_by');
     }
@@ -24,7 +30,7 @@ class Moment extends Model
 
     public function update_status($status) {
         $status = Status::where([
-            'name' => $status,
+            'body' => $status,
         ])->get()->first();
         $this->status_id = $status->id;
         $this->save();
@@ -32,10 +38,16 @@ class Moment extends Model
     }
 
     public function payment() {
-		return $this->belongsTo(Payment::class);
+		return $this->hasOne(Payment::class);
     }
 
     public function images() {
 		return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function schedule() {
+        $this->update_status('SCHEDULED');
+        $this->is_scheduled = true;
+        $this->save();
     }
 }

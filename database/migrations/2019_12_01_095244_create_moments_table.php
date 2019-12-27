@@ -15,12 +15,17 @@ class CreateMomentsTable extends Migration
     {
         Schema::create('moments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('feel_id');
-            $table->text('message');
+            $table->unsignedBigInteger('feel_id')->nullable();
+            $table->text('message')->nullable();
             $table->timestamp('share_at')->nullable();
-            $table->unsignedBigInteger('share_with')->nullable();
+            $table->text('share_with')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->boolean('is_paid')->default(false);
+            $table->boolean('is_scheduled')->default(false);
+            $table->boolean('is_expired')->default(false);
+            $table->double('amount')->nullable();
+            $table->string('razorpay_order_id')->nullable();
             $table->timestamps();
         });
 
@@ -39,5 +44,6 @@ class CreateMomentsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('moments');
+        Schema::dropIfExists('moment_status');
     }
 }
