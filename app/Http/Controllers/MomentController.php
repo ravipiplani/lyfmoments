@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Moment;
 use App\Payment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Database\QueryException;
 
 class MomentController extends Controller
 {
@@ -31,8 +33,21 @@ class MomentController extends Controller
         }
         $moment = Moment::create([
             'feel_id' => $request->get('feel_id'),
-            'message' => $request->get('message')
+            'message' => $request->get('message'),
         ]);
+        $is_not_unique = true;
+        while ($is_not_unique) {
+            try {
+                $moment->link = md5(uniqid($moment->id, true));
+                $moment->save();
+                $is_not_unique = false;
+            }
+            catch (QueryException $e) {
+                $is_not_unique = true;
+            }
+        }
+        $moment->link = md5(uniqid($moment->id, true));
+        $moment->save();
         $moment->update_status('DRAFT');
         foreach ($request->file('images') as $file) {
             $filePath = "moments/$moment->id/images/".new_guid().".".$file->extension();
@@ -61,7 +76,7 @@ class MomentController extends Controller
                 'mobile' => $request->get('receiver_mobile'),
             ];
             //update moment
-            $share_at = $request->get('moment_datetime')." ".$request->get('hour').":".$request->get('minutes');
+            $share_at = Carbon::parse($request->get('moment_datetime')." ".str_pad($request->get('hour'), 2, "0").":".str_pad($request->get('minutes'), 2, "0"));
             $moment->fill([
                 'share_with' => $share_with,
                 'share_at' => $share_at
@@ -90,7 +105,7 @@ class MomentController extends Controller
             }
             //update moment
             $moment->fill([
-                'created_by' => $user->id,
+                'user_id' => $user->id,
                 'razorpay_order_id' => $rp_order_id,
                 'amount' => $amount
             ])->save();
@@ -111,5 +126,14 @@ class MomentController extends Controller
                 'success' => false
             ]);
         }
+    }
+
+    public function show($link) {
+        $moment = Moment::where(['link' => $link])->firstOrFail();
+        return view('moment', compact('moment'));
+    }
+
+    public function scheduled(Moment $moment) {
+        return view('scheduled', compact('moment'));
     }
 }

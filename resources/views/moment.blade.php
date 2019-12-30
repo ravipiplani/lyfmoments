@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .bg {
-        background-image: url("/assets/img/dog-9.jpg");
+        background-image: url("{{$moment->images->first()->url}}");
         filter: grayscale(1) blur(10px);
         height: 100%;
         width: 100%;
@@ -12,47 +12,46 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .message {
-        font-size: 40px;
-        line-height: 1.4em;
-    }
-    .moment-images {
-        position: relative;
-    }
-    .moment-images .moment-image {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        height: calc(100vh - 6rem);
-        overflow: hidden;
+    .moment-image {
+        padding: 10px;
+        background: white;
     }
 </style>
 <div class="bg"></div>
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 p-5">
-            <h2 class="text-white">Hey Ravi</h2>
-            <h6 class="text-warning m-0">Raina shared a moment with you</h6>
-            <p class="text-white mt-2">December 31st, 2019 @19:00</p>
-            <p class="handwriting mt-5 text-white message">
-                this is awesome, this is awesome, this is awesome, this is awesome, this is awesome, 
-            </p>
-        </div>
-        <div class="col-md-6 p-5">
-            <div class="moment-images">
+    @include('partials.header')
+
+    <div class="d-flex justify-content-center" style="z-index: 1">
+        <div class="row">
+            <div class="col-md-3">
+                <h2 class="text-white">Hey {{ucwords($moment->share_with['name'])}}</h2>
+                <h6 class="text-warning m-0">{{ucwords($moment->user->name)}} shared a moment with you</h6>
+                <p class="text-white mt-2">{{$moment->share_at->format('F jS, Y @H:i')}}</p>
+                @if ($moment->feel)
+                <h1 class="far {{$moment->feel->icon}}" data-toggle="tooltip" data-placement="bottom" title="Feeling {{$moment->feel->name}}" style="color: {{$moment->feel->color}}"></h1>
+                @endif
+                @if ($moment->message)
+                <p class="handwriting mt-5 text-white moment-message">
+                    {{$moment->message}}
+                </p>
+                @endif
+                <a class="btn btn-primary btn-lg mt-5" href="{{route('index')}}">
+                    <h5 class="text-white">Share a moment back</h5>
+                </a>
+            </div>
+            @foreach ($moment->images as $image)
+            <div class="col-md-3 mb-3">
                 <div class="moment-image">
-                    <img src="/assets/img/dog-9.jpg" class="w-100" />
-                </div>
-                <div class="moment-image">
-                    <img src="/assets/img/dog-8.jpg" class="w-100" />
-                </div>
-                <div class="moment-image">
-                    <img src="/assets/img/dog-7.jpg" class="w-100" />
+                    <img src="{{$image->url}}" class="w-100" alt="moment" />
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
+
 </div>
+
 @endsection
 
 @section('script')

@@ -86,7 +86,7 @@ class PaymentController extends Controller
                     'is_paid' => true
                 ])->save();
                 $moment->schedule();
-                return redirect()->route('index');
+                return redirect()->route('moments.scheduled', ['moment' => $moment]);
             }
             else {
                 return "<b>Transaction status is failure</b>" . "<br/>";

@@ -19,13 +19,14 @@ class CreateMomentsTable extends Migration
             $table->text('message')->nullable();
             $table->timestamp('share_at')->nullable();
             $table->text('share_with')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->boolean('is_paid')->default(false);
             $table->boolean('is_scheduled')->default(false);
             $table->boolean('is_expired')->default(false);
             $table->double('amount')->nullable();
             $table->string('razorpay_order_id')->nullable();
+            $table->string('link')->unique()->nullable();
             $table->timestamps();
         });
 

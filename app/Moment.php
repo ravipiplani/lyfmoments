@@ -9,15 +9,16 @@ class Moment extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'share_with' => 'array'
+        'share_with' => 'array',
+        'share_at' => 'date'
 	];
 
-    public function createdBy () {
-        return $this->belongsTo(User::class, 'id', 'created_by');
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
-    public function sharedWith () {
-        return $this->belongsTo(User::class, 'id', 'share_with');
+    public function feel() {
+        return $this->belongsTo(Feel::class);
     }
 
     public function status() {

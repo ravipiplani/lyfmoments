@@ -2,6 +2,9 @@
 
 return [
     'moment_price' => [
-        'IN' => '10'
+        'IN' => [
+            'currency' => '₹',
+            'value' => 1
+        ]
     ]
 ];

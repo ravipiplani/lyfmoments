@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeelsTable extends Migration
+class CreateConfigsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFeelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('feels', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('icon');
-            $table->string('color');
+            $table->string('key')->unique();
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateFeelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feels');
+        Schema::dropIfExists('configs');
     }
 }

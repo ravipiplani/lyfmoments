@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(FeelsTableSeeder::class);
         $this->call(StatusesTableSeeder::class);
+        $this->call(ConfigsTableSeeder::class);
     }
 }

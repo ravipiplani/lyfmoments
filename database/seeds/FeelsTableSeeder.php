@@ -14,27 +14,32 @@ class FeelsTableSeeder extends Seeder
     {
         $feel = Feel::firstOrNew(['name' => 'Happy']);
         $feel->fill([
-            'icon' => 'fa-smile'
+            'icon' => 'fa-smile',
+            'color' => '#FFEB3B'
         ])->save();
 
         $feel = Feel::firstOrNew(['name' => 'Loved']);
         $feel->fill([
-            'icon' => 'fa-heart'
+            'icon' => 'fa-heart',
+            'color' => '#F44336'
         ])->save();
 
         $feel = Feel::firstOrNew(['name' => 'Flirty']);
         $feel->fill([
-            'icon' => 'fa-kiss-wink-heart'
+            'icon' => 'fa-kiss-wink-heart',
+            'color' => '#E91E63'
         ])->save();
 
         $feel = Feel::firstOrNew(['name' => 'Angry']);
         $feel->fill([
-            'icon' => 'fa-angry'
+            'icon' => 'fa-angry',
+            'color' => '#FF5722'
         ])->save();
 
         $feel = Feel::firstOrNew(['name' => 'Sad']);
         $feel->fill([
-            'icon' => 'fa-frown'
+            'icon' => 'fa-frown',
+            'color' => '#9E9E9E'
         ])->save();
     }
 }

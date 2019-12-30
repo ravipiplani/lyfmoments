@@ -39,10 +39,6 @@ class User extends Authenticatable
     ];
 
     public function moments() {
-        return $this->hasMany(Moment::class, 'created_by');
-    }
-
-    public function receivedMoments() {
-        return $this->hasMany(Moment::class, 'share_with');
+        return $this->hasMany(Moment::class);
     }
 }

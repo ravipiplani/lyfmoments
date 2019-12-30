@@ -1,0 +1,169 @@
+.moment-message {
+    font-size: 32px;
+    line-height: 1.4em;
+}
+* {
+    position: relative;
+}
+a {
+    border-bottom: 0 !important;
+}
+.bg {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: url("/assets/img/bg-blur.png") 0 0 / cover;
+}
+.small-thumbnail {
+    width: 100px;
+    height: 100px;
+    float:left;
+}
+.small-thumbnail img {
+    vertical-align: top;	
+}
+.mask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000000cc;
+    z-index: 1;
+}
+.navbar, .header, .testimonials, .cta, .footer-1 {
+    z-index: 10;
+}
+.landing .form-subscribe {
+    max-width: initial;
+}
+.bg-dark {
+    background-color: #1d1c1dc4 !important;
+}
+.cta {
+    background-color: #4a154bc4;
+}
+img.bg-img {
+    display: none;
+}
+canvas {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.form-control, .custom-select, .custom-file {
+    height: calc(2.25rem + 4px);
+}
+.input-group .custom-file-label {
+    margin: 0;
+}
+.custom-file-label::after {
+    height: calc(2.25rem + 2px);
+}
+.home-cta {
+    margin: 0 auto;
+}
+.home-cta .custom-file-input {
+    width: 0;
+}
+.home-cta label {
+    margin: 0;
+}
+.modal-dialog {
+    margin: 5.75rem auto;
+}
+.modal .avatar {
+    position: absolute;
+    left: 30px;
+    top: -30px;
+    padding: 15px;
+    background: whitesmoke;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid silver;
+}
+.memory-image {
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.memory-image img {
+    border-radius: 5px;
+    border: 2px solid #c5c2c2;
+}
+.memory-image em {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: #ffffffb0;
+    border-radius: 50%;
+    z-index: 0;
+    padding: 22px;
+    font-size: 16px;
+    color: red;
+    transform: scale(0);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+.memory-image:hover em {
+    transform: scale(1);
+}
+.memory-message, .memory-message:focus, .memory-message:hover {
+    border: 0px;
+    outline: none;
+    font-size: 28px;
+    resize: none;
+    height: 160px !important;
+}
+.steps .step {
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0;
+}
+.steps .step.show {
+    height: auto;
+    transform: translateX(0%);
+    opacity: 1;
+}
+.modal-body {
+    overflow: hidden;
+}
+.custom-select, .custom-select:hover {
+    border: 0 !important;
+    padding: 0 !important;
+    background: none;
+}
+.custom-select-sm {
+    height: auto !important;
+    font-size: 110% !important;
+}
+.feelings {
+}
+.feelings .feeling {
+    cursor: pointer;
+}
+.feelings .feeling:hover {
+    color: #ffc10778 !important;
+}
+.feelings .feeling.feeling--selected {
+    color: #ffc107 !important;
+}
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+    background-color: #611F6A;
+}
+.pignose-calendar-wrapper .pignose-calendar .pignose-calendar-button-group .pignose-calendar-button-apply, .pignose-calendar-wrapper .pignose-calendar .pignose-calendar-button-group .pignose-calendar-button-apply:hover {
+    background-color: #611F6A;
+    color: white;
+}
+.form-control, .custom-select, .custom-file, .form-control:hover, .custom-select:hover, .custom-file:hover, .form-control:focus, .custom-select:focus, .custom-file:focus {
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
