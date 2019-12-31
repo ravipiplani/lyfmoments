@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>{{strtoupper(env('APP_NAME'))}} - Save beautiful memories</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="description" content="A memory keeper to save those beautiful memories which you never want to forget.">
-	<meta name="author" content="BootstrapBay">
+	<meta name="author" content="LyfMoments">
+
+	@yield ('og_tags')
 	
-	<link href="assets/img/favicon.ico" rel="icon" type="image/png">
+	<link href="/assets/img/favicon.ico" rel="icon" type="image/png">
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="/assets/css/lazy.css">
@@ -45,7 +46,7 @@
 	
 	<script src="https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <script src="/assets/vendor/pg-calendar-master/dist/js/pignose.calendar.full.min.js"></script>
+    <!-- <script src="/assets/vendor/pg-calendar-master/dist/js/pignose.calendar.full.min.js"></script> -->
     <script src="/assets/js/validations.js"></script>
     
     @yield ('script')

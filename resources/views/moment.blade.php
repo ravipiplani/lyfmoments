@@ -23,11 +23,11 @@
     @include('partials.header')
 
     <div class="d-flex justify-content-center" style="z-index: 1">
-        <div class="row">
+        <div class="row w-100">
             <div class="col-md-3">
                 <h2 class="text-white">Hey {{ucwords($moment->share_with['name'])}}</h2>
                 <h6 class="text-warning m-0">{{ucwords($moment->user->name)}} shared a moment with you</h6>
-                <p class="text-white mt-2">{{$moment->share_at->format('F jS, Y @H:i')}}</p>
+                <p class="text-white mt-2">{{$moment->created_at->format('F jS, Y @H:i')}}</p>
                 @if ($moment->feel)
                 <h1 class="far {{$moment->feel->icon}}" data-toggle="tooltip" data-placement="bottom" title="Feeling {{$moment->feel->name}}" style="color: {{$moment->feel->color}}"></h1>
                 @endif

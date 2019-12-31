@@ -10,7 +10,7 @@
                 <button type="button" class="btn btn-light mr-auto step-mover step-mover--backward d-none" data-steps="#moment-steps"><em class="fas fa-chevron-left"></em></button>
             </div>
             <div class="modal-body steps" id="moment-steps" data-steps-count="3">
-                <div class="step show" data-step="1" data-action="saveMoment" data-btn-text="<em class='far fa-clock mr-2'></em>Schedule">
+                <div class="step show" data-step="1" data-action="saveMoment" data-btn-text="Next">
                     <div class="row form-group">
                         <div class="mw-100 pl-3 align-self-center">
                             <label class="text-primary">I am feeling</label>
@@ -37,11 +37,11 @@
                         <input type="hidden" name="update" value="schedule" />
                         <input type="hidden" name="moment_datetime" id="momentDatetime" value="" />
                         <div class="form-group">
-                            <label for="formReceiverName">Okay, we will share this moment with</label>
+                            <label for="formReceiverName">Okay, you want to share this moment with</label>
                             <input type="text" class="form-control" name="receiver_name" id="momentReceiverName" placeholder="Name" data-validations="required" data-display-name="Name">
                             <div class="invalid-feedback"></div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="text" class="form-control" name="receiver_email" id="momentReceiverEmail" placeholder="Email" data-validations="required|email" data-display-name="Email">
                             <div class="invalid-feedback"></div>
                         </div>
@@ -67,10 +67,10 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
-                <div class="step" data-step="3" data-action="saveMomentSenderAndPay" data-btn-text="Pay &#8377; 10">
+                <div class="step" data-step="3" data-action="saveMomentSenderAndPay" data-btn-text="Pay {{config('constants.moment_price.IN.currency')}}{{config('constants.moment_price.IN.value')}}">
                     <form id="formMomentFrom" class="need-custom-validation" data-action="">
                         <input type="hidden" name="update" value="sender" />
                         <div class="form-group">
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary step-mover step-mover--forward" data-steps="#moment-steps" id="btnMomentAction"><em class="far fa-clock mr-2"></em>Schedule</button>
+                <button type="button" class="btn btn-primary step-mover step-mover--forward" data-steps="#moment-steps" id="btnMomentAction">Next</button>
             </div>
         </div>
     </div>

@@ -71,9 +71,7 @@ class MomentController extends Controller
         if ($update == 'schedule') {
             //create user
             $share_with = [
-                'name' => $request->get('receiver_name'),
-                'email' => $request->get('receiver_email'),
-                'mobile' => $request->get('receiver_mobile'),
+                'name' => $request->get('receiver_name')
             ];
             //update moment
             $share_at = Carbon::parse($request->get('moment_datetime')." ".str_pad($request->get('hour'), 2, "0").":".str_pad($request->get('minutes'), 2, "0"));
@@ -96,7 +94,7 @@ class MomentController extends Controller
                 ])->save();
             }
             //create razorpay order
-            $amount = config('constants.moment_price.IN') * 100;
+            $amount = config('constants.moment_price.IN.value') * 100;
             if (empty($moment->razorpay_order_id)) {
                 $rp_order_id = Payment::create_order($moment->id, $amount);
             }
@@ -133,7 +131,7 @@ class MomentController extends Controller
         return view('moment', compact('moment'));
     }
 
-    public function scheduled(Moment $moment) {
-        return view('scheduled', compact('moment'));
+    public function created(Moment $moment) {
+        return view('created', compact('moment'));
     }
 }

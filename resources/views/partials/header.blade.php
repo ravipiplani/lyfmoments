@@ -6,7 +6,7 @@
         <ul class="navbar-nav ml-auto ">
             <li class="nav-item m-2 m-md-0">
                 <h5 class="link text-warning mt-2">
-                <span class="text-white">{{\App\Config::get_value('moments_count')}}</span> #lyfmoments
+                <span class="text-white">{{\App\Config::get_value('moments_count')}}</span> #lyfmoments <br />Shared
                 </h5>
             </li>
         </ul>

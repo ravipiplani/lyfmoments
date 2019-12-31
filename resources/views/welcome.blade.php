@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@section('og_tags')
+<title>{{strtoupper(env('APP_NAME'))}} - Save beautiful memories</title>
+<meta property="og:title" content="{{strtoupper(env('APP_NAME'))}} - Save beautiful memories" />
+<meta property="og:url" content="{{env('APP_URL')}}" />
+<meta property="og:description" content="A memory keeper to save those beautiful memories which you never want to forget.">
+<meta property="og:image" content="/assets/img/logo.svg">
+<meta property="og:type" content="website" />
+@endsection
+
 @section('content')
 
 <div class="bg"></div>
@@ -33,7 +42,7 @@
 @endsection
 
 @section('script')
-<script src="./assets/js/mouse-effects.js"></script>
+<script src="/assets/js/mouse-effects.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 var files = [],
@@ -55,12 +64,12 @@ var files = [],
 		}
 	};
 $('[data-toggle="tooltip"]').tooltip();
-$('#openCalendar').pignoseCalendar({
-	minDate: moment().format('YYYY-MM-DD'),
-	modal: true,
-	buttons: true,
-	apply: onApplyHandler
-});
+// $('#openCalendar').pignoseCalendar({
+// 	minDate: moment().format('YYYY-MM-DD'),
+// 	modal: true,
+// 	buttons: true,
+// 	apply: onApplyHandler
+// });
 
 function onApplyHandler(date, context) {
 	$('#displaySelectedDate').text(date[0].format('MMMM Do, YYYY'));
@@ -171,7 +180,7 @@ function saveMoment() {
 		inProgress = false;
 		if (response.data.success) {
 			momentId = response.data.moment_id;
-			$('#openCalendar').click();
+			// $('#openCalendar').click();
 			moveToNextStep();
 		}
 		else {
@@ -196,7 +205,7 @@ function saveMomentReceiver() {
 			route = "{{route('moments.update', ['moment' => '@moment@'])}}";
 		route = route.replace("@moment@", momentId);
 		inProgress = true;
-		momentActionButton.html('Scheduling...');
+		momentActionButton.html('Saving...');
 		axios.post(route, fd)
 		.then(function (response) {
 			inProgress = false;
