@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="bg"></div>
-<img class="bg-img" src="./assets/img/bg.png" alt="background">
+<img class="bg-img" src="./assets/img/bg.jpeg" alt="background">
 
 <div class="container">
 	@include('partials.header')
