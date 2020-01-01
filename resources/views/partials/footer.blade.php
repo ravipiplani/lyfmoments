@@ -3,10 +3,10 @@
 		<div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
 			<div class="links">
 				<ul class="footer-menu list-unstyled d-flex flex-row text-center text-md-left">
-					<li><a href="https://bootstrapbay.com/blog/" target="_blank">Blog</a></li>
-					<li><a href="https://bootstrapbay.com/terms" target="_blank">Terms & Conditions</a></li>
-					<li><a href="https://bootstrapbay.com/terms" target="_blank">Privacy Policy</a></li>
-					<li><a href="https://bootstrapbay.com/terms" target="_blank">Refund Policy</a></li>
+					<li><a href="https://blog.lyfmoments.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+					<li><a href="{{route('tnc')}}">Terms & Conditions</a></li>
+					<li><a href="{{route('pp')}}">Privacy Policy</a></li>
+					<li><a href="{{route('refund_policy')}}">Refund Policy</a></li>
 				</ul>
 			</div>
 			<!-- <div class="social mt-4 mt-md-0">

@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@section('og_tags')
+<title>Moment created by {{$moment->user->name}} for {{$moment->share_with['name']}}</title>
+<meta property="og:title" content="Moment created by {{$moment->user->name}} for {{$moment->share_with['name']}}" />
+<meta property="og:url" content="{{route('moments.show', ['link' => $moment->link])}}" />
+<meta property="og:description" content="@if($moment->message){{$moment->message}}@else{{'A memory keeper to save those beautiful memories which you never want to forget.'}}@endif">
+<meta property="og:image" content="{{$moment->images->first()->url}}">
+<meta property="og:type" content="website" />
+@endsection
+
 @section('content')
 <style>
     .bg {

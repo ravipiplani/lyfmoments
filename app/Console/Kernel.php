@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('lyf:increase-moment-count')->everyMinute();
+        $schedule->command('lyf:increase-moment-count')->everyFiveMinutes();
     }
 
     /**

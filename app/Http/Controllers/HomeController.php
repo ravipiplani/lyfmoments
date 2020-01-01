@@ -11,4 +11,16 @@ class HomeController extends Controller
         $feels = Feel::get();
         return view('welcome', compact('feels'));
     }
+
+    public function refund_policy() {
+        return view('refund');
+    }
+
+    public function tnc() {
+        return view('tnc');
+    }
+
+    public function pp() {
+        return view('privacy-policy');
+    }
 }
