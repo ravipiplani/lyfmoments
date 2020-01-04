@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('og_tags')
-<title>{{strtoupper(env('APP_NAME'))}} - Save beautiful memories</title>
-<meta property="og:title" content="{{strtoupper(env('APP_NAME'))}} - Save beautiful memories" />
+<title>{{strtoupper(env('APP_NAME'))}} - Save beautiful memories and moments</title>
+<meta property="og:title" content="{{strtoupper(env('APP_NAME'))}} - Save beautiful memories and moments" />
 <meta property="og:url" content="{{env('APP_URL')}}" />
-<meta property="og:description" content="A memory keeper to save those beautiful memories which you never want to forget.">
+<meta property="og:description" content="A memory keeper to save those beautiful moments which you never want to forget.">
 <meta property="og:image" content="/assets/img/logo.svg">
 <meta property="og:type" content="website" />
 @endsection

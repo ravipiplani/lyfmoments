@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="A memory keeper to save those beautiful memories which you never want to forget.">
+	<meta name="description" content="A memory keeper to save those beautiful moments which you never want to forget.">
 	<meta name="author" content="LyfMoments">
 
 	@yield ('og_tags')
