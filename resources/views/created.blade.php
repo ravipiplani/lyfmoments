@@ -39,7 +39,7 @@
                 <input type="text" class="form-control pl-2" placeholder="Moment link" aria-label="Moment link" id="momentLink" aria-describedby="basic-addon2" value="{{route('moments.show', ['link' => $moment->link])}}" readonly>
                 <div class="input-group-append">
                     <a class="btn btn-light text-gray" target="_blank" href="{{route('moments.show', ['link' => $moment->link])}}">Preview</a>
-                    <button class="btn btn-warning" type="button" onclick="copyToClipboard('#momentLink')">Copy</button>
+                    <button class="btn btn-warning" type="button" onclick="shareLink('#momentLink')">Copy & Share</button>
                 </div>
             </div>
             <a class="btn btn-primary btn-lg mt-0 mt-md-3 mt-lg-0 text-white" href="{{route('index')}}">
@@ -54,6 +54,21 @@
 
 @section('script')
 <script>
+    function shareLink(element) {
+        if (navigator.share) {
+            navigator.share({
+                title: "A LyfMoment of {{$moment->user->first_name}} and {{$moment->share_with['name']}}",
+                text: "{{$moment->message}}",
+                url: "{{route('moments.show', ['link' => $moment->link])}}",
+            })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing', error));
+        }
+        else {
+            copyToClipboard(element);
+        }
+    }
+
     function copyToClipboard(element) {
         var $temp = $("<input>");
         $("body").append($temp);
