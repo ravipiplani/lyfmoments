@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="description" content="A memory keeper to save those beautiful moments which you never want to forget.">
 	<meta name="author" content="LyfMoments">
+	<meta name="theme-color" content="#4A154B">
 
 	@yield ('og_tags')
 	
