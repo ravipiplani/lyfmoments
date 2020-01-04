@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="bg"></div>
-<img class="bg-img" src="./assets/img/bg.webp" alt="background">
+<img class="bg-img lazyload" data-src="./assets/img/bg.webp" alt="background">
 
 <div class="container">
 	@include('partials.header')
@@ -45,6 +45,11 @@
 <script src="/assets/js/mouse-effects.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+$(document).ready(function() {
+	$('.lazyload').each(function() {
+		$(this).prop('src', $(this).data('src'));
+	});
+});
 var files = [],
 	momentId = "",
 	inProgress = false,
