@@ -46,9 +46,11 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 $(document).ready(function() {
-	$('.lazyload').each(function() {
-		$(this).prop('src', $(this).data('src'));
-	});
+	setTimeout(function() {
+		$('.lazyload').each(function() {
+			$(this).prop('src', $(this).data('src'));
+		});
+	}, 3000);
 });
 var files = [],
 	momentId = "",
