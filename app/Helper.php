@@ -10,3 +10,11 @@ function new_guid() {
 	substr($s,20); 
 	return $guid_text;
 }
+
+function get_location_info($ip) {
+	$location = geoip()->getLocation($ip);
+	return [
+		'iso_code' => $location['iso_code'],
+		'currency' => $location['currency']
+	];
+}
