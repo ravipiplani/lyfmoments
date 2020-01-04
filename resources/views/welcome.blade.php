@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="bg"></div>
-<img class="bg-img" data-original="./assets/img/bg.webp" alt="background">
+<img class="bg-img" data-src="/assets/img/bg.webp" alt="background">
 
 <div class="container">
 	@include('partials.header')
@@ -44,12 +44,10 @@
 @section('script')
 <script src="/assets/js/mouse-effects.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+<script src="/assets/js/jquery.lazy.min.js"></script>
 <script>
-$(document).ready(function() {
-	$("img").lazyload({
-	    effect : "fadeIn"
-	});
+$(function() {
+	$('.bg-img').Lazy();
 });
 var files = [],
 	momentId = "",

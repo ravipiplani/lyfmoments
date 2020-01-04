@@ -41,7 +41,7 @@ a {
     background-color: #4a154bc4;
 }
 img.bg-img {
-    display: none;
+    display: none !important;
 }
 canvas {
     position: absolute;
