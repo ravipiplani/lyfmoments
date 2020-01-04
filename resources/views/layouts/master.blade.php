@@ -34,7 +34,11 @@
 
 	gtag('config', 'UA-115459278-2');
 	</script>
-
+	<style>
+		body {
+			background: #4A154B;
+		}
+	</style>
 </head>
 <body class="landing">
     @yield ('content')					
