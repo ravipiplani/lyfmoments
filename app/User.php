@@ -38,7 +38,16 @@ class User extends Authenticatable
         'mobile_verified_at' => 'datetime'
     ];
 
+    protected $appends = [
+        'first_name'
+    ];
+
     public function moments() {
         return $this->hasMany(Moment::class);
+    }
+
+    public function getFirstNameAttribute() {
+        $name_arr = explode(" ", $this->name);
+        return $name_arr[0];
     }
 }

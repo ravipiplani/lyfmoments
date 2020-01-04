@@ -21,7 +21,7 @@
 		<div class="container">
 			<h1 class="display-4 text-white"><span class="moment-verb text-warning">Create</span> a Moment. <br />Just {{config('constants.moment_price.IN.currency')}}{{config('constants.moment_price.IN.value')}} per moment.</h1>
 			<p class="lead my-4 text-white">We will create a beautiful <b class="text-warning">Moment</b>,<br />which will be <b class="text-warning">forever</b> yours to share.</p>
-			<div class="input-group">
+			<div class="input-group mb-5">
 				<div class="btn btn-primary btn-lg mt-0 mt-md-3 mt-lg-0 home-cta">
 					<input type="file" class="custom-file-input" id="inputGroupMemoryImage" accept="image/*" onchange="readImages(this, true);" multiple>
 					<label for="inputGroupMemoryImage"><small>Select Photos &</small><br />Create a Moment</label>
