@@ -61,6 +61,8 @@
                     </p>
                     @endif
                 </div>
+                <input type="hidden" id="momentLink" value="{{route('moments.show', ['link' => $moment->link])}}"/>
+                <button class="btn btn-light mt-2" type="button" onclick="shareLink('#momentLink')">Copy & Share</button>
             </div>
             @foreach ($moment->images as $image)
             <div class="col-md-3 mb-3">
@@ -82,6 +84,28 @@
 
 @section('script')
 <script>
-    
+    function shareLink(element) {
+        if (navigator.share) {
+            navigator.share({
+                title: "A LyfMoment of {{$moment->user->first_name}} and {{$moment->share_with['name']}}",
+                text: "{{$moment->message}}",
+                url: "{{route('moments.show', ['link' => $moment->link])}}",
+            })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing', error));
+        }
+        else {
+            copyToClipboard(element);
+        }
+    }
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).val()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Link copied successfully.");
+    }
 </script>
 @endsection
