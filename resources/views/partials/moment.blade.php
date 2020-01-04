@@ -73,7 +73,7 @@
                 @php
                 $location = json_decode(request()->cookie('location'), true);
                 @endphp
-                <div class="step" data-step="3" data-action="saveMomentSenderAndPay" data-btn-text="Pay {{config('moment_price.'.$location['iso_code'].'.currency_symbol')}}{{config('moment_price.'.$location['iso_code'].'.value')}}">
+                <div class="step" data-step="3" data-action="saveMomentSenderAndPay" data-btn-text="Pay {{config('moment_price.'.$location['iso_code'].'.currency_symbol', config('moment_price.US.currency_symbol'))}}{{config('moment_price.'.$location['iso_code'].'.value', config('moment_price.US.value'))}}">
                     <form id="formMomentFrom" class="need-custom-validation" data-action="">
                         <input type="hidden" name="update" value="sender" />
                         <div class="form-group">

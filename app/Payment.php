@@ -23,7 +23,7 @@ class Payment extends Model
         return $rp_api->order->create([
             'receipt' => $receipt,
             'amount' => $amount,
-            'currency' => config('moment_price.'.$location['iso_code'].'.currency'),
+            'currency' => config('moment_price.'.$location['iso_code'].'.currency', config('moment_price.US.currency')),
             'payment_capture' => 1
         ])->id;
     }

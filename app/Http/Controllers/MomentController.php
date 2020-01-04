@@ -95,7 +95,7 @@ class MomentController extends Controller
             }
             //create razorpay order
             $location = json_decode($request->cookie('location'), true);
-            $amount = config('moment_price.'.$location['iso_code'].'.value') * 100;
+            $amount = config('moment_price.'.$location['iso_code'].'.value', config('moment_price.US.value')) * 100;
             if (empty($moment->razorpay_order_id)) {
                 $rp_order_id = Payment::create_order($moment->id, $amount);
             }
